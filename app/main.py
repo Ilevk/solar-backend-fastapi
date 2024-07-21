@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.responses import ORJSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.core.config import config
@@ -8,7 +9,7 @@ from app.routers import router
 
 
 def get_application() -> FastAPI:
-    application = FastAPI(**config.fastapi_kwargs)
+    application = FastAPI(default_response_class=ORJSONResponse, **config.fastapi_kwargs)
 
     application.include_router(router)
     application.add_exception_handler(BaseAPIException, api_error_handler)
