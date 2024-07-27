@@ -1,4 +1,4 @@
-from typing import AsyncGenerator
+from typing import AsyncGenerator, List
 
 from openai import AsyncOpenAI, APIConnectionError
 from retry import retry
@@ -15,7 +15,7 @@ class OpenAIClient:
         )
 
     @retry(tries=5, delay=1, backoff=2, exceptions=APIConnectionError)
-    async def generate(self, messages: str, model: str = "solar-1-mini-chat", **kwargs) -> str:
+    async def generate(self, messages: List[str], model: str = "solar-1-mini-chat", **kwargs) -> str:
         logger.info(f"Generating completion for message: {messages}, model: {model}")
         try:
             response = await self.client.chat.completions.create(
@@ -31,7 +31,7 @@ class OpenAIClient:
             raise OpenAIException(f"Completion failed: {e}")
 
     @retry(tries=5, delay=1, backoff=2, exceptions=APIConnectionError)
-    async def stream_generate(self, messages: str, model: str = "solar-1-mini-chat", **kwargs) -> AsyncGenerator[str, None]:
+    async def stream_generate(self, messages: List[str], model: str = "solar-1-mini-chat", **kwargs) -> AsyncGenerator[str, None]:
         logger.info(f"Generating stream completion for messages: {messages}, model: {model}")
         try:
             response = await self.client.chat.completions.create(
