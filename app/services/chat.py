@@ -1,8 +1,6 @@
 from typing import List, Dict, AsyncGenerator
 
-
 from app.clients import OpenAIClient
-
 
 class ChatService:
 
