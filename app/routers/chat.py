@@ -14,11 +14,10 @@ async def chat(chat_request: ChatRequest, chat_service: ChatService = Depends(Ch
     Chat with OpenAI API
 
     Args:
-        chat_request (ChatRequest): Request body
-        chat_service (ChatService, optional): Chat service. Defaults to Depends(ChatServiceFactory.get_chat_service).
+    - chat_request (ChatRequest): Request body
 
     Returns:
-        ChatResponse | StreamingResponse: Chat response
+    - ChatResponse | StreamingResponse: Chat response
     """
 
     if chat_request.stream:
