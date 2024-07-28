@@ -29,4 +29,4 @@ async def chat(chat_request: ChatRequest, chat_service: ChatService = Depends(Ch
     else:
         response = await chat_service.chat(messages=chat_request.messages, model=chat_request.model)
 
-        return ChatResponse(data=response).model_dump()
+        return ChatResponse(data=response)
