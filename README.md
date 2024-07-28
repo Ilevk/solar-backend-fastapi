@@ -71,7 +71,7 @@ Here is an overview of the project structure:
 solar-backend-fastapi/
 ├── app/
 │   ├── clients/
-│   │  └── openai.py
+│   │  └── open_ai.py
 │   ├── core/
 │   │   ├── errors/
 │   │   ├── config.py
