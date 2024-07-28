@@ -74,7 +74,11 @@ Here is an overview of the project structure:
 solar-backend-fastapi/
 ├── app/
 │   ├── clients/
+│   │  └── openai.py
 │   ├── core/
+│   │   ├── errors/
+│   │   ├── config.py
+│   │   └── logging.py
 │   ├── main.py
 │   ├── models/
 │   │   └── schemas/
@@ -89,12 +93,32 @@ solar-backend-fastapi/
 └── start.sh
 ```
 
-- app/clients/: Contains client code for external services.
-- app/core/: Core utilities like configuration and logging.
-- app/main.py: Entry point of the application.
-- app/models/: Data models and schemas.
-- app/routers/: API route definitions.
-- app/services/: Business logic and service layer.
+## FastAPI app
+This directory contains the main application code.
+
+- ### clients
+  Contains client classes for interacting with external APIs.
+  - `open_ai.py`: Client for interacting with the OpenAI API.
+    - chat, stream_chat.
+
+- ### core
+  Contains core functionalities and configurations.
+  - `errors`: Custom error classes and handlers.
+  - `config.py`: Configuration settings for the application, including environment variables.
+  - `logger.py`: Setup for logging.
+
+- ### models
+  Contains Pydantic models and schemas used for data validation and serialization.
+    - `schemas`: Pydantic models for request and response payloads.
+
+- ### routers
+  Contains the API route definitions.
+  - `chat.py`: Routes for chat operations.
+
+- ### services
+  Contains business logic and service classes.
+  - `chat.py`: Services related to chat operations.
+  - `service_factory.py`: Factory class for creating service instances.
 
 ## Configuration
 Configuration is managed using environment variables. You can set these variables in a .env file in the root directory.
