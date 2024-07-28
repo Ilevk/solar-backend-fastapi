@@ -9,9 +9,6 @@ Welcome to the Solar Backend FastAPI project! This project is designed to provid
 - [Installation](#installation)
 - [Usage](#usage)
 - [Project Structure](#project-structure)
-- [Configuration](#configuration)
-- [Running Tests](#running-tests)
-- [Contributing](#contributing)
 - [License](#license)
 
 ## Introduction
@@ -56,7 +53,7 @@ To get started with this project, follow these steps:
     Create a `.env` file in the root directory and add the necessary environment variables. For example:
 
     ```env
-    OPENAI_API_KEY=your_openai_api_key
+    API_KEY=your_upstage_api_key
     ```
 
 ## Usage
